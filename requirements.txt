@@ -1,0 +1,13 @@
+Flask==1.1.1
+requests==2.23.0
+scikit-learn==0.22.2
+numpy==1.18.2
+tqdm==4.43.0
+torch==1.4.0
+
+# my req
+torchtext==0.5.0
+pytorch-crf==0.7.2
+spacy==2.2.4
+torchcrf==1.0.4
+gensim==3.8.1

@@ -1,0 +1,11 @@
+GoogleNews*.bin
+model/model_emb*.pth
+*.pth
+*.bin
+.idea
+.idea/*
+*.pyc
+*.label
+*.sample
+*.pickle
+*.picke
