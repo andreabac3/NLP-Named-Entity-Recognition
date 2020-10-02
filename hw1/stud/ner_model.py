@@ -92,24 +92,5 @@ class NER_WORD_MODEL_CRF(nn.Module):
         output = self.classifier(o)
         return output
 
-    def loss(self, outputs, goldLabels, mask=None):
-        """ calculates cross entrophy loss for tokens
-        :param feats: lstm features
-        :param goldLabels: goldLabels of batch
-        :param mask: non pad mask, needed for crf
-        :return : average token cross entrophy loss
-        """
-        useCrf = True
-        if useCrf:
-            try:
-                assert mask is not None
-            except AssertionError as e:
-                e.args += ("no mask provided", "aborting")
-                raise
-            num_tokens = int(torch.sum(mask).item())
-            loss = self.crflayer.forward(outputs, goldLabels, mask)
-            return -torch.sum(loss) / num_tokens
 
-        else:
-            return lossFn(outputs, goldLabels)
 
