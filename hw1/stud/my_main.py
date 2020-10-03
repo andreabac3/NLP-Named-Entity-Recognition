@@ -28,7 +28,7 @@ nlp.tokenizer = nlp.tokenizer.tokens_from_list
 if not STORED_DATASET:
     x_train, y_train = read_dataset('../../data/train.tsv')
     dt: NER_Dataset = NER_Dataset(x_train, y_train, device=DEVICE, spacy_nlp=nlp)
-    '''
+
     vocab_sample = build_vocab(dt)
     vocab_sample_pos = build_vocab_pos(dt)
     vocab_label = build_label_vocab(dt)
@@ -37,20 +37,10 @@ if not STORED_DATASET:
     torch.save(vocab_sample_pos, '../../model/vocab_sample_pos_new.pth')
     torch.save(vocab_label, '../../model/vocab_label_new.pth')
     torch.save(dt, '../../model/train_saved_dataset.pth')
-    '''
+
 
 else:
     dt: NER_Dataset = torch.load('../../model/train_saved_dataset.pth', map_location=DEVICE)
-    #
-    vocab_sample = build_vocab(dt)
-    vocab_sample_pos = build_vocab_pos(dt)
-    vocab_label = build_label_vocab(dt)
-    dt.build_sample(vocab_sample, vocab_label, vocab_sample_pos)
-    torch.save(vocab_sample, '../../model/vocab_sample_new.pth')
-    torch.save(vocab_sample_pos, '../../model/vocab_sample_pos_new.pth')
-    torch.save(vocab_label, '../../model/vocab_label_new.pth')
-    torch.save(dt, '../../model/train_saved_dataset.pth')
-    #
     vocab_label = torch.load("../../model/vocab_label_new.pth", map_location=DEVICE)
     vocab_sample_pos = torch.load("../../model/vocab_sample_pos_new.pth", map_location=DEVICE)
     vocab_sample = torch.load("../../model/vocab_sample_new.pth", map_location=DEVICE)
@@ -66,7 +56,7 @@ class HParams():
     num_layers = 3
     dropout = 0.4
     embeddings = None
-    use_crf = USE_CRF  # set to true to test with the CRF
+    use_crf = USE_CRF  # set to true to test with the Conditional Random Field
     vocab_size_pos = len(vocab_sample_pos)
 
 
@@ -74,7 +64,6 @@ print("LOC = ", vocab_label['LOC'])
 print("O = ", vocab_label['O'])
 print("PER = ", vocab_label['PER'])
 print("ORG = ", vocab_label['ORG'])
-print()
 
 if not STORED_DATASET:
     x_dev, y_dev = read_dataset('../../data/dev.tsv')
