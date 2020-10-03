@@ -63,8 +63,8 @@ def preprocess(sentence: List[str], label: List[str]):
     return sentence, label
 
 
-def build_vocab(dataset):
-    counter = Counter()
+def build_vocab(dataset) -> Vocab:
+    counter: Counter = Counter()
     for i in tqdm(range(len(dataset.list_of_sentences))):  # dataset[i] == 1 sentence
         word = dataset.list_of_sentences[i]
 
@@ -73,8 +73,8 @@ def build_vocab(dataset):
     return Vocab(counter, specials=['<pad>', '<unk>'])
 
 
-def build_vocab_pos(dataset):
-    counter = Counter()
+def build_vocab_pos(dataset) -> Vocab:
+    counter: Counter = Counter()
     for i in tqdm(range(len(dataset.list_of_sentences_pos))):  # dataset[i] == 1 sentence
         word = dataset.list_of_sentences_pos[i]
 
@@ -83,8 +83,8 @@ def build_vocab_pos(dataset):
     return Vocab(counter, specials=['<pad>'])
 
 
-def build_label_vocab(dataset):
-    counter = Counter()
+def build_label_vocab(dataset) -> Vocab:
+    counter: Counter = Counter()
     for i in tqdm(range(len(dataset.list_of_sentences_labels))):
         label = dataset.list_of_sentences_labels[i]
         if label != start_token and label != end_token and label != pad_token:

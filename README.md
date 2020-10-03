@@ -6,8 +6,8 @@ I also tested the model using the Conditional Random Field, as shown in the tabl
 
 ![ner diagram](./images/NER_Diagram.png)
 
-Check the ![Report](Andrea%20Bacciu%20-%20HMW1%20Report.pdf)
- and the ![Slide Presentation](presentation_slide_ner_srl.pdf) for more information.
+Check the [Report](Andrea%20Bacciu%20-%20HMW1%20Report.pdf)
+ and the [Slide Presentation](presentation_slide_ner_srl.pdf) for more information.
  
 # Results
 | Model          | Dev F1 (%) | Test F1 (%) |
