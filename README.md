@@ -16,7 +16,7 @@ Check the [Report](Andrea%20Bacciu%20-%20HMW1%20Report.pdf)
 | Word2Vec + BiLSTM | 80.25   | 81.04 | 
 | Word2Vec + BiLSTM + CRF | 88.12   | 89.76 | 
 | Pos Emb + W2v + CRF | 92.11   | 92.37 | 
-| Pos Emb + W2v | 92.20   | 92.66 | 
+| **Pos Emb + W2v** | **92.20**   | **92.66** | 
 
 
 ## Run
